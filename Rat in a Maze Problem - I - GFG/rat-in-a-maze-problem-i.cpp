@@ -11,6 +11,8 @@ using namespace std;
 class Solution{
     private:
     bool isSafe(int x,int y,int n,vector<vector<int>> visited,vector<vector<int>> &m){
+        //pointer should be in range and not visited, destination should be 1
+        //0 -- closed path 1--open path
         if((x>=0 && x<n) && (y>=0 && y<n) && visited[x][y] == 0 && m[x][y] == 1){
             return true;
         }else{
@@ -69,6 +71,7 @@ class Solution{
     public:
     vector<string> findPath(vector<vector<int>> &m, int n) {
         vector<string> ans;
+        //if rat in not stand at src
         if(m[0][0]==0){
             return ans;
         }
@@ -77,6 +80,7 @@ class Solution{
         int srcy = 0;
         
         vector<vector<int>> visited = m;
+        //initialize visited array with 0
         for(int i=0;i<n;i++){
             for(int j=0;j<n;j++){
                 visited[i][j] = 0;
