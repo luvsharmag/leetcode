@@ -12,11 +12,20 @@ class Solution
 public:
     int largest(vector<int> &arr, int n)
     {
-        priority_queue<int> pq;
+        //apr
+        // priority_queue<int> pq;
+        // for(int i = 0; i < n; i++){
+        //     pq.push(arr[i]);
+        // }
+        // return pq.top();
+        //apr
+        int maxi = arr[0];
         for(int i = 0; i < n; i++){
-            pq.push(arr[i]);
+            if(maxi < arr[i]){
+                maxi = arr[i];
+            }
         }
-        return pq.top();
+        return maxi;
     }
 };
 
