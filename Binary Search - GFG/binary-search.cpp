@@ -10,16 +10,30 @@ using namespace std;
 
 class Solution {
   public:
-    int binarysearch(int arr[], int n, int k) {
-        int s = 0;
-        int e = n - 1;
-        while(s <= e){
-            int mid = s + (e-s)/2;
-            if(arr[mid] < k)s = mid+1;
-            else if(arr[mid] > k)e = mid - 1;
-            else return mid;
+    int bsrec(int arr[],int n,int k,int s,int e){
+        if(s <= e){
+            int mid = s+(e-s)/2;
+            if(arr[mid] < k){
+                return bsrec(arr,n,k,mid+1,e);
+            }else if(arr[mid] > k){
+                return bsrec(arr,n,k,s,mid-1);
+            }else{
+                return mid;
+            }
         }
         return -1;
+    }
+    int binarysearch(int arr[], int n, int k) {
+        // int s = 0;
+        // int e = n - 1;
+        // while(s <= e){
+        //     int mid = s + (e-s)/2;
+        //     if(arr[mid] < k)s = mid+1;
+        //     else if(arr[mid] > k)e = mid - 1;
+        //     else return mid;
+        // }
+        // return -1;
+        return bsrec(arr,n,k,0,n-1);
     }
 };
 
