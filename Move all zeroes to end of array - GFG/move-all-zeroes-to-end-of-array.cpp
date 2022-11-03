@@ -7,23 +7,34 @@ using namespace std;
 class Solution{
 public:
 	void pushZerosToEnd(int arr[], int n) {
-	    int temp[n];
-	    int j = 0;
-	    int cnt = 0;
-	    for(int i = 0 ; i  < n ; i++){
-	        if(arr[i] > 0 ){
-	            temp[j++] = arr[i];
-	        }else{
-	            cnt++;
+	    int i = 0, j = 0;
+	    while(arr[i] != 0){
+	        i++;
+	        j++;
+	    }
+	    for(int k = i; k < n ; k++){
+	        if(arr[k] > 0){
+	            arr[j++] = arr[k];
+	            arr[k] = 0;
 	        }
 	    }
-	    while(cnt != 0){
-	        temp[j++] = 0;
-	        cnt--;
-	    }
-	    for(int i = 0 ; i < n; i++){
-	        arr[i] = temp[i];
-	    }
+	   // int temp[n];
+	   // int j = 0;
+	   // int cnt = 0;
+	   // for(int i = 0 ; i  < n ; i++){
+	   //     if(arr[i] > 0 ){
+	   //         temp[j++] = arr[i];
+	   //     }else{
+	   //         cnt++;
+	   //     }
+	   // }
+	   // while(cnt != 0){
+	   //     temp[j++] = 0;
+	   //     cnt--;
+	   // }
+	   // for(int i = 0 ; i < n; i++){
+	   //     arr[i] = temp[i];
+	   // }
 	    
 	}
 };
