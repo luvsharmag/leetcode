@@ -9,13 +9,20 @@ using namespace std;
 
 class Solution {
   public:
-    bool arraySortedOrNot(int arr[], int n) {
-        for(int i = 0; i < n-1 ; i++){
-            if(arr[i] > arr[i+1]){
-                return false;
-            }
+    bool issorted(int arr[],int n){
+        if(n == 0||n == 1){
+            return 1;
         }
-        return true;
+        return arr[n-1] >= arr[n-2] && issorted(arr,n-1);
+    }
+    bool arraySortedOrNot(int arr[], int n) {
+        // for(int i = 0; i < n-1 ; i++){
+        //     if(arr[i] > arr[i+1]){
+        //         return false;
+        //     }
+        // }
+        // return true;
+        return issorted(arr,n);
     }
 };
 
